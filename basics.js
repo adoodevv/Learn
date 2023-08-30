@@ -46,3 +46,10 @@ for (let i = 0; i < fLen; i++) {
   text += "<li>" + fruits[i] + "</li>";
 }
 text += "</ul>";
+
+//dates
+const d = new Date(); //current date and time
+const d = new Date(2018, 11, 24, 10, 33, 30, 0); //specified date and time
+//months start with 0 to 11
+
+//boolean
