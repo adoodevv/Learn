@@ -79,3 +79,15 @@ switch (new Date().getDay()) {
   default:
     text = "Looking forward to the Weekend";
 }
+
+/*loops*/
+//for loops
+for (let i = 0; i < 5; i++) {
+  text += "The number is " + i + "<br>";
+}
+
+for (let i = 0, len = cars.length, text = ""; i < len; i++) {
+  text += cars[i] + "<br>";
+}
+
+//while loops
