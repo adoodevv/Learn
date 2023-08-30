@@ -52,4 +52,9 @@ const d = new Date(); //current date and time
 const d = new Date(2018, 11, 24, 10, 33, 30, 0); //specified date and time
 //months start with 0 to 11
 
-//boolean
+//boolean and comparisons
+let x = false;
+x == 6; //equal to
+x != 6; //not equal to
+
+if (age < 18) text = "Too young to buy alcohol";
