@@ -6,7 +6,8 @@ let y = x + 2;
 let z = x ** 2;
 
 let first_name = "joe";
-let last_name = "adoo";
+let last_name = "ad\"oo";
+let length = first_name.length;
 
 console.log(first_name + " " + last_name);
 
@@ -21,8 +22,13 @@ console.log(k);
 // objects
 const car = {
 type : "toyota", 
-color : "black"
+color : "black",
 specs : function() {
 	return this.color + " " + this.type;
 }
 };
+
+let firstName = "John";
+let lastName = "Doe";
+
+let text = `Welcome ${firstName}, ${lastName}!`;
