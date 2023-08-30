@@ -124,3 +124,11 @@ hello = function() {
 hello = () => {
   return "Hello World!";
 } //with arrow
+
+//classes
+class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
+}
