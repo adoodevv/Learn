@@ -58,3 +58,12 @@ x == 6; //equal to
 x != 6; //not equal to
 
 if (age < 18) text = "Too young to buy alcohol";
+
+//if, else and else if
+if (time < 10) {
+  greeting = "Good morning";
+} else if (time < 20) {
+  greeting = "Good day";
+} else {
+  greeting = "Good evening";
+}
