@@ -91,3 +91,24 @@ for (let i = 0, len = cars.length, text = ""; i < len; i++) {
 }
 
 //while loops
+while (i < 10) {
+  text += "The number is " + i;
+  i++;
+}
+
+do {
+  text += "The number is " + i;
+  i++;
+}
+while (i < 10);
+
+//break and continue
+for (let i = 0; i < 10; i++) {
+  if (i === 3) { break; }
+  text += "The number is " + i + "<br>";
+} //break ends the loop at 3
+
+for (let i = 0; i < 10; i++) {
+  if (i === 3) { continue; }
+  text += "The number is " + i + "<br>";
+} //continue skips the 3rd iteration
