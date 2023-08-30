@@ -112,3 +112,6 @@ for (let i = 0; i < 10; i++) {
   if (i === 3) { continue; }
   text += "The number is " + i + "<br>";
 } //continue skips the 3rd iteration
+
+//sets
+const letters = new Set(["a","b","c"]);
