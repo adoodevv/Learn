@@ -17,3 +17,12 @@ function multiply(a, b) {
 }
 let k = multiply(2, 4);
 console.log(k);
+
+// objects
+const car = {
+type : "toyota", 
+color : "black"
+specs : function() {
+	return this.color + " " + this.type;
+}
+};
