@@ -115,3 +115,12 @@ for (let i = 0; i < 10; i++) {
 
 //sets
 const letters = new Set(["a","b","c"]);
+
+//arrow
+hello = function() {
+  return "Hello World!";
+} //before arrow
+
+hello = () => {
+  return "Hello World!";
+} //with arrow
