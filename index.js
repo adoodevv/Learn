@@ -29,3 +29,9 @@ let selectedColors = ['red', 'blue'];
 console.log(selectedColors);
 selectedColors[2] = 'green';
 console.log(selectedColors[1]);
+
+//functions
+function greet(firstname) {
+    console.log('Hello ' + firstname);
+}
+greet('peggy');
