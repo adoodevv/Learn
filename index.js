@@ -35,3 +35,8 @@ function greet(firstname) {
     console.log('Hello ' + firstname);
 }
 greet('peggy');
+
+//function calculating a value
+function square(number) {
+    return number * number
+}
