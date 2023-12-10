@@ -9,7 +9,7 @@ console.log(name);
 const interestRate = 0.3;
 console.log(interestRate);
 
-//objects
+// objects
 let zoo = {
     // curly braces = on=bject literal
     animal: "dog",
@@ -23,3 +23,9 @@ console.log(zoo.animal);
 // Bracket notation
 zoo['keeper'] = 'george';
 console.log(zoo.keeper);
+
+// arrays
+let selectedColors = ['red', 'blue'];
+console.log(selectedColors);
+selectedColors[2] = 'green';
+console.log(selectedColors[1]);
