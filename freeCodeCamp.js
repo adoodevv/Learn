@@ -14,8 +14,12 @@ var myData = myArray[0][1];
 console.log(myData);
 
 //functions
-function ourReusableFunction() {
+function ReusableFunction() {
     console.log("Heyya, World");
 }
+ReusableFunction();
 
-ourReusableFunction();
+function FunctionWithArgs(a, b) {
+    console.log(a - b);
+}
+FunctionWithArgs(10, 5);
