@@ -39,3 +39,12 @@ function TrueOrFalse(isItTrue) {
 }
 
 console.log(TrueOrFalse(true));
+
+//comparison with equal
+function testEqual(val) {
+    if (val == 12) {
+        return "Equal";
+    }
+    return "Not Equal";
+}
+console.log(testEqual(10));
