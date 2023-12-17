@@ -29,3 +29,13 @@ function minusSeven(num) {
     return num - 7;
 }
 console.log(minusSeven(10));
+
+//conditional statements
+function TrueOrFalse(isItTrue) {
+    if (isItTrue) {
+        return "Yes, that was true";
+    }
+    return "No, that was false";
+}
+
+console.log(TrueOrFalse(true));
