@@ -23,3 +23,9 @@ function FunctionWithArgs(a, b) {
     console.log(a - b);
 }
 FunctionWithArgs(10, 5);
+
+//return
+function minusSeven(num) {
+    return num - 7;
+}
+console.log(minusSeven(10));
