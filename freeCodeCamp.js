@@ -48,3 +48,7 @@ function testEqual(val) {
     return "Not Equal";
 }
 console.log(testEqual(10));
+
+// != not equal to
+// && and operator
+// || or operator
