@@ -52,3 +52,13 @@ console.log(testEqual(10));
 // != not equal to
 // && and operator
 // || or operator
+
+//Else statements
+function testElse(val) {
+    if (val == 12) {
+        return "Equal";
+    } else {
+        return "Not Equal";
+    }
+}
+console.log(testElse(12));
