@@ -62,3 +62,15 @@ function testElse(val) {
     }
 }
 console.log(testElse(12));
+
+//Else If statements
+function testElseIf(val) {
+    if (val < 10) {
+        return "Less than 10";
+    } else if (val < 5) {
+        return "Less than 5";
+    } else {
+        return "Greater than or equal to 10";
+    }
+}
+console.log(testElseIf(12));
