@@ -107,4 +107,6 @@ function golfScore(par, strokes) {
     } 
 }
 
-console.log(golfScore(5, 8))
+console.log(golfScore(5, 8));
+
+//Switch statements
