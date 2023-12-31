@@ -186,3 +186,14 @@ var testObj = {
 
 var hatValue = testObj.hat;
 console.log(hatValue);
+
+//Accessing object properties with bracket notation
+//required if the name has a space in it
+var testObjt = {
+    "an entree": "hamburger",
+    "my side": "veggies",
+    "the drink": "water",
+};
+
+var entreeValue = testObjt["an entree"];
+console.log(entreeValue);
