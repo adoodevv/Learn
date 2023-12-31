@@ -197,3 +197,25 @@ var testObjt = {
 
 var entreeValue = testObjt["an entree"];
 console.log(entreeValue);
+
+//Complex objects
+var myMusic = [
+    {
+        "artist": "Black Sheriff",
+        "title": "The Homeless Song",
+        "release year": 2022,
+        "formats": [
+            "Youtube Video",
+            "Spotify"
+        ]
+    },
+    {
+        "artist": "Burna Boy",
+        "title": "Last Last",
+        "release year": 2022,
+        "formats": [
+            "Youtube Video",
+            "Spotify"
+        ]
+    }
+];
