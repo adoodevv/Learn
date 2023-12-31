@@ -130,3 +130,10 @@ function caseInSwitch(val) {
 } 
 
 console.log(caseInSwitch(2))
+
+//returning boolean from function
+function isLess(a, b) {
+    return a < b;
+} 
+
+console.log(isLess(10, 15));
