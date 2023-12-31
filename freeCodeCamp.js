@@ -166,3 +166,13 @@ function cc(card) {
 
 cc(2); cc("K"); cc(10); cc("K"); cc("A");
 console.log(cc(4));
+
+//Objects
+//properties : values
+//properties can be any data type in JS
+var myDog = {
+    "name": "Peg",
+    "legs": 3,
+    "tails": 2,
+    "friends": ["Joe", "Mills"]
+}
