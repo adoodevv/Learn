@@ -258,3 +258,42 @@ var myPlants = [
 
 var secondTree = myPlants[1].list[1];
 console.log(secondTree);
+
+//Test - Record collection
+var collection = {
+    "2548": {
+        "album": "The Villain I Never Was",
+        "artist": "Black Sheriff",
+        "tracks": [
+            "Toxic Love City",
+            "Wasteman",
+            "45"
+        ] 
+    },
+    "2468": {
+        "album": "Love, Damini",
+        "artist": "Burna Boy",
+        "tracks": [
+            "Last Last",
+            "Vanilla",
+            "Science"
+        ] 
+    }
+};
+//Keep a copy of the collection for tests
+var collectionCopy = JSON.parse(JSON.stringify(collection));
+
+//funtion for task
+function updateRecords(id, prop, value) {
+    if (value === "") {
+        delete collection[id][prop];
+    } else if (prop === "tracks") {
+        collection[id][prop] = collection[id][prop] || [];
+        collection[id][prop].push(value);
+    } else {
+        collection[id][prop] = value;
+    }
+    return collection;
+}
+//test
+console.log(updateRecords(2468, "artist", "Jonathan"));
