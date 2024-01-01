@@ -301,10 +301,22 @@ console.log(updateRecords(2468, "artist", "Jonathan"));
 //loops allows you to run a piece of code multiple times
 //While loops
 var myArray = [];
+
 var i = 0;
+
 while (i < 5) {
     myArray.push(i);
     i++;
 }
 
 console.log(myArray);
+
+//For loops
+// most common type of loop in JS
+var ourArray = [];
+//for (initialization; condition; expression)
+for (var i = 0; i < 5; i++){ 
+    ourArray.push(i);
+}
+
+console.log(ourArray);
