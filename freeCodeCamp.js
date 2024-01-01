@@ -433,3 +433,15 @@ function randomRange(myMin, myMax) {
 }
 
 console.log(randomRange(5, 15));
+
+// parseInt function
+// takes a string and gives an integer
+function convertToInteger(str) {
+    return parseInt(str);
+}
+
+// parseInt function with a radix
+// radix specifies the base of the number such as base 2 or base 5
+function convertToIntegers(str) {
+    return parseInt(str, 2);
+}
