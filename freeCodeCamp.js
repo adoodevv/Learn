@@ -320,3 +320,21 @@ for (var i = 0; i < 5; i++){
 }
 
 console.log(ourArray);
+
+//iterate even numbers with For loops
+var myArray = [];
+
+for (var i = 2; i < 10; i += 2){ 
+    myArray.push(i);
+}
+
+console.log(myArray);
+
+//iterate odd numbers with For loops
+var myArray = [];
+
+for (var i = 1; i < 10; i += 2){ 
+    myArray.push(i);
+}
+
+console.log(myArray);
