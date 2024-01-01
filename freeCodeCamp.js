@@ -338,3 +338,14 @@ for (var i = 1; i < 10; i += 2){
 }
 
 console.log(myArray);
+
+//iterate through an array with For loops
+var myArr = [9, 10, 11, 12];
+var myTotal = 0;
+
+for (var i = 0; i < myArr.length; i++) {
+    myTotal += myArr[i];
+}
+
+console.log(myTotal);
+
