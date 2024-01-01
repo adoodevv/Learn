@@ -410,3 +410,10 @@ function lookUpProfile(name, prop) {
 
 var data = lookUpProfile("Haqq", "likes")
 console.log(data);
+
+//generate random fractions
+function randomFraction() {
+    return Math.random();
+}
+
+console.log(randomFraction());
