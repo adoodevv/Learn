@@ -460,3 +460,21 @@ function checkSign(num) {
 }
 
 console.log(checkSign(-5));
+
+// let variable declaration doesn't allow a variable to be declared twice
+let catName = "Peg";
+catName = "Afri";
+
+//const variable is read-only
+const RATE = 4.5;
+
+// mutating an array declared with const
+const s = [5, 7, 2];
+
+function editInPlace() {
+    s[0] = 2;
+    s[2] = 4;
+    return s
+}
+
+console.log(editInPlace());
