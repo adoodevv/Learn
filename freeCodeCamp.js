@@ -362,3 +362,16 @@ function multipyAll(arr) {
 
 var multiply = multipyAll([[1,2], [3,4], [5,6,7]]);
 console.log(multiply);
+
+//Do while loops
+//while loops first checks the condition before it runs any code withing the loop
+//do while loop will always run at least one time then it checks the condition
+var myArray = [];
+var i = 10;
+
+do {
+    myArray.push(i);
+    i++;
+} while (i < 5)
+
+console.log(i, myArray);
