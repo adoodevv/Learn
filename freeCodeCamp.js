@@ -445,3 +445,18 @@ function convertToInteger(str) {
 function convertToIntegers(str) {
     return parseInt(str, 2);
 }
+
+// conditional(ternary) operator
+// just like a one-line if else expression
+// condition ? statement-if-true : statement-if-false;
+
+function checkEqual(a, b) {
+    return a === b ? true : false;
+}
+
+// multiple ternary operators
+function checkSign(num) {
+    return num > 0 ? "positive": num < 0 ? "negative" : "zero";
+}
+
+console.log(checkSign(-5));
