@@ -259,7 +259,7 @@ var myPlants = [
 var secondTree = myPlants[1].list[1];
 console.log(secondTree);
 
-//Test - Record collection
+//challenge: Record collection
 var collection = {
     "2548": {
         "album": "The Villain I Never Was",
@@ -375,3 +375,38 @@ do {
 } while (i < 5)
 
 console.log(i, myArray);
+
+//challenge: Profile lookup
+var contacts = [
+    {
+        "firstName": "Christabel",
+        "lastName": "Quansah",
+        "number": "0011223377",
+        "likes": ["Pizza", "Sobolo"]
+    },
+    {
+        "firstName": "Haqq",
+        "lastName": "Munagah",
+        "number": "9911223377",
+        "likes": ["Coding", "Sobolo", "Football"]
+    },
+    {
+        "firstName": "Melike",
+        "lastName": "Arkutu",
+        "number": "unknown",
+        "likes": ["Coding", "Music"]
+    }
+]
+
+//function takes a name and property and returns the value of the property
+function lookUpProfile(name, prop) {
+    for (var i = 0; i < contacts.length; i++) {
+        if (contacts[i].firstName === name) {
+            return contacts[i][prop] || "No such property";
+        }
+    }
+    return "No such contact"
+}
+
+var data = lookUpProfile("Haqq", "likes")
+console.log(data);
