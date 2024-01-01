@@ -297,3 +297,14 @@ function updateRecords(id, prop, value) {
 }
 //test
 console.log(updateRecords(2468, "artist", "Jonathan"));
+
+//loops allows you to run a piece of code multiple times
+//While loops
+var myArray = [];
+var i = 0;
+while (i < 5) {
+    myArray.push(i);
+    i++;
+}
+
+console.log(myArray);
