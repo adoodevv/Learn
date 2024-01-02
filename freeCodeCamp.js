@@ -483,6 +483,16 @@ console.log(editInPlace());
 const magic = () => new Date();
 
 // arrow functions with parameters
-var myConcat = (arr1, arr2) => arr1.concat(arr2);
+const myConcat = (arr1, arr2) => arr1.concat(arr2);
 
 console.log(myConcat([1, 2], [3, 4, 5]));
+
+// rest operator
+// allows to create a function that creates a variable number of parameters
+const sum = (function() {
+    return function sum(...args) {
+        return args.reduce((a, b) => a + b, 0);
+    };
+})();
+
+console.log(sum(1, 2, 8, 4));
