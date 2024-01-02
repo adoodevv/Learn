@@ -531,3 +531,18 @@ const Vegetable = makeClass();
 const carrot = new Vegetable('carrot');
 console.log(carrot.name);
 
+// getters and setters
+// getter functions return the value of an object's private variable without the user directly accessing to the private variable
+class Book {
+    constructor(author) {
+        this._author = author; // private variable
+    }
+    // getter
+    get writer() {
+        return this._author;
+    }
+    // setter
+    set writer(updatedAuthor) {
+        this._author = updatedAuthor;
+    }
+}
