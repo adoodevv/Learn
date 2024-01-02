@@ -505,3 +505,15 @@ let arr2
     arr1[0] = 'potato'
 }) ();
 console.log(arr2);
+
+//creating strings with template literals
+const person = {
+    name : "Jonathan Adoo",
+    age : 18
+};
+// template literals use back ticks, variables can be inserted with ${variable}
+// You can also have multi-line strings
+const greeting = `Hello, my name is ${person.name}! 
+I am ${person.age} years old`;
+
+console.log(greeting);
