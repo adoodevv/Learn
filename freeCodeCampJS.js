@@ -496,3 +496,6 @@ const sum = (function() {
 })();
 
 console.log(sum(1, 2, 8, 4));
+
+// spread operator - expands an already existing array
+const arr1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY']
