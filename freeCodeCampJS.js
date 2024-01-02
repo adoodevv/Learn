@@ -517,3 +517,17 @@ const greeting = `Hello, my name is ${person.name}!
 I am ${person.age} years old`;
 
 console.log(greeting);
+
+// classes
+function makeClass () {
+    class Vegetable {
+        constructor(name) {
+            this.name = name;
+        }
+    }
+    return Vegetable;
+}
+const Vegetable = makeClass();
+const carrot = new Vegetable('carrot');
+console.log(carrot.name);
+

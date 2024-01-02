@@ -11,7 +11,6 @@ console.log(interestRate);
 
 // objects
 let zoo = {
-    // curly braces = on=bject literal
     animal: "dog",
     keeper: "haqq"
 }
