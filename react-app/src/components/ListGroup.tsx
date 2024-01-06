@@ -2,6 +2,7 @@ import { MouseEvent } from "react";
 
 function ListGroup() {
   let items = ["New York", "Accra", "Takoradi", "Keta"];
+  items = [];
 
   const getMessage = () => {
     return items.length === 0 ? <p>No items found</p> : null;
