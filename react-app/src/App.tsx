@@ -15,8 +15,8 @@ function App() {
       <Alert>
         Hello <span>World</span>
       </Alert>
-      <Button>
-        
+      <Button color = "secondary" onClick={() => console.log("Clicked")}>
+        My button
       </Button>
     </div>
   );
