@@ -13,4 +13,4 @@ const Alert = ({children, onClose}: Props) => {
   )
 }
 
-export default Alert
+export default Alert;
