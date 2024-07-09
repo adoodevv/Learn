@@ -1,144 +1,113 @@
 #include <iostream>
-#include <fstream>
+#include <vector>
 #include <string>
+#include <cstdlib>
 
 using namespace std;
+
+class Location
+{
+public:
+    string name;
+    string description;
+    // Constructor
+    Location(string name, string description) : name(name), description(description) {}
+    void displayInfo()
+    {
+        cout << "Location: " << name << "\n"
+             << description << endl;
+    }
+};
+
+class NPC
+{
+public:
+    string name;
+    string dialogue;
+    // Constructor
+    NPC(string name, string dialogue) : name(name), dialogue(dialogue) {}
+    void talk()
+    {
+        cout << name << " says: " << dialogue << endl;
+    }
+};
 
 class Player
 {
 public:
-    string name;
-    int location;
-    int currentLocation;
-    Player(string name) : name(name), currentLocation(0) {}
-
-    int getLocation() const
+    int locationIndex;
+    // Constructor
+    Player() : locationIndex(0) {}
+    void move(int newLocationIndex, const vector<Location> &locations)
     {
-        return location;
+        locationIndex = newLocationIndex;
+        cout << "Moving to: " << locations[locationIndex].name << endl;
     }
-
-    void setLocation(int newLocation)
+    void searchArea()
     {
-        location = newLocation;
+        cout << "Searching the area for clues..." << endl;
     }
 };
 
-struct Location
+class Game
 {
-    string name;
-    string description;
-    Location(string name = "", string description = "") : name(name), description(description) {}
+private:
+    Player player;
+    vector<Location> locations;
+    vector<NPC> npcs;
+
+public:
+    Game()
+    {
+        // Initialize locations, NPCs, etc.
+        locations.push_back(Location("Old Town", "An ancient part of the city with many secrets."));
+        locations.push_back(Location("Mysterious Forest", "A dense forest that many dare not enter."));
+        npcs.push_back(NPC("Old Man", "Beware of the forest at night."));
+    }
+    void start()
+    {
+        cout << "Welcome to the Adventure Game!" << endl;
+        while (true)
+        {
+            displayMenu();
+            int choice;
+            cin >> choice;
+            handlePlayerAction(choice);
+        }
+    }
+    void displayMenu()
+    {
+        cout << "1. Move\n2. Exit\n3. Search for clues\n4. Talk to NPC\nChoose an action: ";
+    }
+    void handlePlayerAction(int choice)
+    {
+        switch (choice)
+        {
+        case 1:
+            player.move((player.locationIndex + 1) % locations.size(), locations);
+            break;
+        case 2:
+            cout << "Exiting game." << endl;
+            exit(0);
+        case 3:
+            player.searchArea();
+            break;
+        case 4:
+            if (!npcs.empty())
+            {
+                npcs[0].talk(); // Example: interact with the first NPC
+            }
+            break;
+        default:
+            cout << "Invalid choice. Please try again.\n";
+            break;
+        }
+    }
 };
-
-struct NPC
-{
-    string name;
-    string dialogue;
-    NPC(string name = "", string dialogue = "") : name(name), dialogue(dialogue) {}
-};
-
-void saveGame(const Player &player)
-{
-    ofstream file("savegame.txt");
-    if (file.is_open())
-    {
-        file << player.name << "\n";
-        file << player.currentLocation << "\n";
-        // Save other player details as needed
-        file.close();
-    }
-}
-
-void loadGame(Player &player)
-{
-    ifstream file("savegame.txt");
-    if (file.is_open())
-    {
-        getline(file, player.name);
-        file >> player.currentLocation;
-        // Load other player details as needed
-        file.close();
-    }
-}
-
-void createProfile()
-{
-    string playerName;
-    cout << "Enter your name: ";
-    cin >> playerName;
-    ofstream file(playerName + "_profile.txt");
-    if (file.is_open())
-    {
-        file << playerName << "\n";
-        file.close();
-    }
-}
-
-void selectProfile(Player &player)
-{
-    string playerName;
-    cout << "Enter your profile name: ";
-    cin >> playerName;
-    ifstream file(playerName + "_profile.txt");
-    if (file.is_open())
-    {
-        getline(file, player.name);
-        file.close();
-    }
-    else
-    {
-        cout << "Profile not found, creating a new one.\n";
-        createProfile();
-        player.name = playerName;
-    }
-}
-
-void displayMenu(Player &player, Location &currentLocation)
-{
-    cout << "1. Move\n2. Exit\n3. Search for clues\n4. Save Game\nChoose an action: ";
-}
-
-void handlePlayerAction(Player &player, Location locations[], NPC npcs[])
-{
-    int choice;
-    cin >> choice;
-    switch (choice)
-    {
-    case 1:
-        // Example movement logic
-        player.setLocation((player.getLocation() + 1) % 5); // Cycle through locations
-        break;
-    case 2:
-        exit(0); // Exit the game
-    case 3:
-        cout << "You search the area and find some clues.\n";
-        // Implement search logic
-        break;
-    case 4:
-        saveGame(player);
-        cout << "Game saved.\n";
-        break;
-    default:
-        cout << "Invalid option. Try again.\n";
-    }
-}
 
 int main()
 {
-    Player player("Default");
-    Location locations[5]; // Example locations
-    NPC npcs[5];           // Example NPCs
-
-    cout << "Welcome to the Adventure Game!\n";
-    selectProfile(player);
-    // Initialize locations and NPCs here
-
-    while (true)
-    {
-        displayMenu(player, locations[player.currentLocation]);
-        handlePlayerAction(player, locations, npcs);
-        // Add more game logic as needed
-    }
-
+    Game game;
+    game.start();
     return 0;
 }
