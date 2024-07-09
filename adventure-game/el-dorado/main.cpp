@@ -4,28 +4,44 @@
 
 using namespace std;
 
-struct Player {
+class Player
+{
+public:
     string name;
+    int location;
     int currentLocation;
-    // Add more player attributes as needed
     Player(string name) : name(name), currentLocation(0) {}
+
+    int getLocation() const
+    {
+        return location;
+    }
+
+    void setLocation(int newLocation)
+    {
+        location = newLocation;
+    }
 };
 
-struct Location {
+struct Location
+{
     string name;
     string description;
     Location(string name = "", string description = "") : name(name), description(description) {}
 };
 
-struct NPC {
+struct NPC
+{
     string name;
     string dialogue;
     NPC(string name = "", string dialogue = "") : name(name), dialogue(dialogue) {}
 };
 
-void saveGame(const Player& player) {
+void saveGame(const Player &player)
+{
     ofstream file("savegame.txt");
-    if (file.is_open()) {
+    if (file.is_open())
+    {
         file << player.name << "\n";
         file << player.currentLocation << "\n";
         // Save other player details as needed
@@ -33,9 +49,11 @@ void saveGame(const Player& player) {
     }
 }
 
-void loadGame(Player& player) {
+void loadGame(Player &player)
+{
     ifstream file("savegame.txt");
-    if (file.is_open()) {
+    if (file.is_open())
+    {
         getline(file, player.name);
         file >> player.currentLocation;
         // Load other player details as needed
@@ -43,63 +61,80 @@ void loadGame(Player& player) {
     }
 }
 
-void createProfile() {
+void createProfile()
+{
     string playerName;
     cout << "Enter your name: ";
     cin >> playerName;
     ofstream file(playerName + "_profile.txt");
-    if (file.is_open()) {
+    if (file.is_open())
+    {
         file << playerName << "\n";
         file.close();
     }
 }
 
-void selectProfile(Player& player) {
+void selectProfile(Player &player)
+{
     string playerName;
     cout << "Enter your profile name: ";
     cin >> playerName;
     ifstream file(playerName + "_profile.txt");
-    if (file.is_open()) {
+    if (file.is_open())
+    {
         getline(file, player.name);
         file.close();
-    } else {
+    }
+    else
+    {
         cout << "Profile not found, creating a new one.\n";
         createProfile();
         player.name = playerName;
     }
 }
 
-void displayMenu(Player& player, Location& currentLocation) {
+void displayMenu(Player &player, Location &currentLocation)
+{
     cout << "1. Move\n2. Exit\n3. Search for clues\n4. Save Game\nChoose an action: ";
 }
 
-void handlePlayerAction(Player& player, Location locations[], NPC npcs[]) {
+void handlePlayerAction(Player &player, Location locations[], NPC npcs[])
+{
     int choice;
     cin >> choice;
-    switch (choice) {
-        case 3:
-            cout << "You search the area and find some clues.\n";
-            // Implement search logic
-            break;
-        case 4:
-            saveGame(player);
-            cout << "Game saved.\n";
-            break;
-        default:
-            cout << "Invalid option. Try again.\n";
+    switch (choice)
+    {
+    case 1:
+        // Example movement logic
+        player.setLocation((player.getLocation() + 1) % 5); // Cycle through locations
+        break;
+    case 2:
+        exit(0); // Exit the game
+    case 3:
+        cout << "You search the area and find some clues.\n";
+        // Implement search logic
+        break;
+    case 4:
+        saveGame(player);
+        cout << "Game saved.\n";
+        break;
+    default:
+        cout << "Invalid option. Try again.\n";
     }
 }
 
-int main() {
+int main()
+{
     Player player("Default");
     Location locations[5]; // Example locations
-    NPC npcs[5]; // Example NPCs
+    NPC npcs[5];           // Example NPCs
 
     cout << "Welcome to the Adventure Game!\n";
     selectProfile(player);
     // Initialize locations and NPCs here
 
-    while (true) {
+    while (true)
+    {
         displayMenu(player, locations[player.currentLocation]);
         handlePlayerAction(player, locations, npcs);
         // Add more game logic as needed
