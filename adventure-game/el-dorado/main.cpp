@@ -63,7 +63,7 @@ private:
 public:
     Game()
     {
-        // Initialize locations, NPCs, etc.
+        // Initialize locations, NPCs
         locations.push_back(Location("Old Town", "An ancient part of the city with many secrets."));
         locations.push_back(Location("Mysterious Forest", "A dense forest that many dare not enter."));
         locations.push_back(Location("KNUST", "A hostile University that many dare not enter for studies."));
@@ -87,12 +87,11 @@ public:
     }
     void saveGame(const Player &player)
     {
-        ofstream file("savegame.txt");
+        ofstream file(player.name + "_savedgame.txt");
         if (file.is_open())
         {
             file << player.name << "\n";
             file << player.locationName << "\n";
-            // Save other player details as needed
             file.close();
         }
     }
@@ -142,7 +141,7 @@ public:
         case 4:
             if (!npcs.empty())
             {
-                npcs[0].talk(); // Example: interact with the first NPC
+                npcs[0].talk(); // interact with the first NPC
             }
             break;
         case 5:
