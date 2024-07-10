@@ -3,6 +3,7 @@
 #include <string>
 #include <cstdlib>
 #include <fstream>
+#include <ctime>
 
 using namespace std;
 
@@ -24,12 +25,17 @@ class NPC
 {
 public:
     string name;
-    string dialogue;
-    // Constructor
-    NPC(string name, string dialogue) : name(name), dialogue(dialogue) {}
-    void talk()
+    vector<string> dialogues;
+
+    NPC(string name, vector<string> dialogues) : name(name), dialogues(dialogues) {}
+
+    string getRandomDialogue()
     {
-        cout << ">> " << name << " says: " << dialogue << endl;
+        if (dialogues.empty())
+            return "I have nothing to say.";
+        srand(time(0)); // Seed the random number generator
+        int index = rand() % dialogues.size();
+        return dialogues[index];
     }
 };
 
@@ -67,7 +73,8 @@ public:
         locations.push_back(Location("Old Town", "An ancient part of the city with many secrets."));
         locations.push_back(Location("Mysterious Forest", "A dense forest that many dare not enter."));
         locations.push_back(Location("KNUST", "A hostile University that many dare not enter for studies."));
-        npcs.push_back(NPC("Old Man", "Beware of the forest at night."));
+        npcs.push_back(NPC("Old Man", {"beware of the forest at night.", "avoid Strangers."}));
+        npcs.push_back(NPC("Wise Owl", {"wisdom is the key.", "find God."}));
     }
     void start()
     {
@@ -120,10 +127,38 @@ public:
         }
         else
         {
-            cout << "Profile not found, creating a new one.\n";
+            cout << "Profile not found, create a new one.\n";
             createProfile();
             player.name = playerName;
         }
+    }
+    void listNPCs()
+    {
+        cout << "Available NPCs to talk to:" << endl;
+        for (size_t i = 0; i < npcs.size(); ++i)
+        {
+            cout << i + 1 << ". " << npcs[i].name << endl; // Assuming NPC class has a getName() method
+        }
+    }
+    void talkToNPC()
+    {
+        if (npcs.empty())
+        {
+            cout << "No NPCs to talk to." << endl;
+            return;
+        }
+        listNPCs();
+        cout << "Choose an NPC to talk to (number): ";
+        int choice;
+        cin >> choice;
+        // Validate input
+        if (choice < 1 || choice > npcs.size())
+        {
+            cout << "Invalid choice. Please try again." << endl;
+            return;
+        }
+        // Adjust for 0-based index
+        cout << ">> " << npcs[choice - 1].name << " says " << npcs[choice - 1].getRandomDialogue() << endl;
     }
     void handlePlayerAction(int choice)
     {
@@ -141,7 +176,8 @@ public:
         case 4:
             if (!npcs.empty())
             {
-                npcs[0].talk(); // interact with the first NPC
+                talkToNPC(); // interact with the first NPC
+                break;
             }
             break;
         case 5:
@@ -154,6 +190,11 @@ public:
         }
     }
 };
+
+void interactWithNPC(NPC npc)
+{
+    cout << npc.getRandomDialogue() << endl;
+}
 
 int main()
 {
