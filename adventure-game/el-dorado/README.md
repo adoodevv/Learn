@@ -1,6 +1,3 @@
-Sure! Here is a `README.md` file for your adventure game:
-
-```markdown
 # Adventure Game
 
 Welcome to the Adventure Game! This is a simple text-based adventure game written in C++ that allows players to explore different locations, talk to NPCs, and search for clues. The game demonstrates the use of object-oriented programming principles such as inheritance and polymorphism.
